@@ -6,5 +6,5 @@ RUN pnpm install
 # Build the app so 'preview' has something to serve
 RUN pnpm run build
 EXPOSE 5173
-# Use preview to run the production build on the VPS
-CMD ["pnpm", "run", "preview", "--host", "0.0.0.0"]
+# Use the vite preview binary directly to correctly handle the host and port flags
+CMD ["pnpm", "exec", "vite", "preview", "--host", "0.0.0.0", "--port", "5173"]
