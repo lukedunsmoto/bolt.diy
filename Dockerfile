@@ -6,5 +6,5 @@ COPY . .
 RUN pnpm install
 RUN pnpm run build
 EXPOSE 5173
-# This executes the actual production bundle directly via Node.js
-CMD ["node", "build/server/index.js"]
+# This command uses the project's internal logic to handle the server environment correctly
+CMD ["pnpm", "run", "dockerstart"]
